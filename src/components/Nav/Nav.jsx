@@ -8,7 +8,7 @@ import { Tooltip as ReactTooltip } from "react-tooltip";
 const Nav = () => {
     const { user, out } = useContext(AuthContex)
     return (
-        <div className='bg-white position-sticky top-0 z-1'>
+        <div className='bg-white position-sticky top-0 z-2'>
             <nav className="navbar navbar-expand-lg my-3 ">
                 <div className="container">
                     <a className="navbar-brand" href="#">Navbar</a>
@@ -27,7 +27,7 @@ const Nav = () => {
                                 <NavLink className={({ isActive }) => `nav-link fw-bolder ${isActive ? 'text-primary' : ''}`} aria-current="page" to="/ono">My Toys</NavLink>
                             </li>
                             <li className="nav-item me-4">
-                                <NavLink className={({ isActive }) => `nav-link fw-bolder ${isActive ? 'text-primary' : ''}`} aria-current="page" to="/ono">Add Toy</NavLink>
+                                <NavLink className={({ isActive }) => `nav-link fw-bolder ${isActive ? 'text-primary' : ''}`} aria-current="page" to="/add_toy">Add Toy</NavLink>
                             </li>
                             <li className="nav-item me-4">
                                 <NavLink className={({ isActive }) => `nav-link fw-bolder ${isActive ? 'text-primary' : ''}`} aria-current="page" to="/ono">Blogs</NavLink>

@@ -13,7 +13,7 @@ const Sec4 = () => {
         <div style={{marginBottom: '100px'}} className='container'>
             <h1 className="text-center fw-bolder ">Our Sponsor</h1>
             <h5 className='text-center my-3 mb-5'>Sponsored by </h5>
-            <Marquee className=''>
+            <Marquee className='z-1'>
                 <img src={i2} alt="" className="img-fluid me-5" />
                 <img src={i3} alt="" className="img-fluid me-5" />
                 <img src={i4} alt="" className="img-fluid me-5" />
