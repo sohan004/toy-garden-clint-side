@@ -10,9 +10,9 @@ import './Sec2.css'
 const Sec2 = () => {
     return (
         <div className='container'>
-            <h1 className="text-center fw-bolder">Toy Guru Gelary</h1>
-            <p className='text-center my-3'>Exploring the Tapestry of Time through Our Gallery</p>
-            <div className="row g-3">
+            <h1 className="text-center fw-bolder">Toy Garden Gelary</h1>
+            <h5 className='text-center my-3'>Exploring the Tapestry of Time through Our Gallery</h5>
+            <div className="row g-3 sc-2">
                 <div className="col-6 col-md-7">
                     <div className='bg p-4 text-center  rounded'>
                         <img src={img1} alt="" className="rounded-3 img-fluid im " />

@@ -5,3 +5,7 @@
 .im:hover {
     transform: scale(1.1);
 }
+
+.sc-2 {
+    margin-bottom: 80px;
+}
