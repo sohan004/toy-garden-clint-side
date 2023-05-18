@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContex } from '../Auth/AuthProvider';
+import blank from '../../assets/blank-profile-picture-gb085c28e0_1280.png'
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 const Nav = () => {
+    const { user, out } = useContext(AuthContex)
     return (
         <div className='bg-white position-sticky top-0 z-1'>
             <nav className="navbar navbar-expand-lg my-3 ">
@@ -28,7 +33,13 @@ const Nav = () => {
                                 <NavLink className={({ isActive }) => `nav-link fw-bolder ${isActive ? 'text-primary' : ''}`} aria-current="page" to="/ono">Blogs</NavLink>
                             </li>
                         </ul>
-                        <button className="btn btn-primary">log in</button>
+                        {user && <img id='ttip' style={{ width: '50px', height: '50px' }} src={user.photoURL ? user.photoURL : blank} alt="" className="img-fluid rounded-circle me-4" />}
+                        {user && <ReactTooltip
+                            anchorId="ttip"
+                            place="bottom"
+                            content={user.displayName}
+                        />}
+                        {user ? <button onClick={() => out()} className="btn btn-danger">log out</button> : <Link to="/sign_in"><button className="btn btn-primary">log in</button></Link>}
                     </div>
                 </div>
             </nav>

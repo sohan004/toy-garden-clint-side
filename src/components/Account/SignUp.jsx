@@ -1,12 +1,15 @@
 import React, { useContext, useState } from 'react';
 import './SignIn.css'
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate, useNavigation } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import gif from '../../assets/secure-login.gif'
 import { AuthContex } from '../Auth/AuthProvider';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
+
+    
+    
     const { signup, updt, out } = useContext(AuthContex)
     const [eror, setEror] = useState('')
     const [typ, setTyp] = useState(false)

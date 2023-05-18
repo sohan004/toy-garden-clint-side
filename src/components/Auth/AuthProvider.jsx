@@ -1,10 +1,11 @@
-import React, { createContext, useContext, useState } from 'react';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from './firebase.congfig';
 
 export const AuthContex = createContext(null)
 
 const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null)
     const [load, setLoad] = useState(true)
     const auth = getAuth(app)
     const provider = new GoogleAuthProvider();
@@ -30,13 +31,26 @@ const AuthProvider = ({ children }) => {
         setLoad(true)
         return signOut(auth)
     }
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser)
+            setLoad(false)
+        })
+        return () => {
+            unsubscribe()
+        }
+    }, [])
     const info = {
         google,
         signin,
         signup,
         out,
-        updt
+        updt,
+        user
     }
+
+    console.log(user)
     return (
         <AuthContex.Provider value={info}>
             {children}
