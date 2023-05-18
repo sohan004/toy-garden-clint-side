@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Select from 'react-select';
 import { AuthContex } from '../Auth/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddToy = () => {
     const [eror, setEror] = useState('')
@@ -46,12 +47,30 @@ const AddToy = () => {
             price,
             quantity,
             name,
+            email,
             details,
             category: selectedOption.value,
             ratings: selectedOption2.value
         }
         setEror('')
-        console.log(info)
+        fetch('http://localhost:5000/toys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(info)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Toy add succesfully',
+                        'your toy add successfully',
+                        'success'
+                    )
+                    e.target.reset()
+                }
+            })
     }
     return (
         <div className='container'>

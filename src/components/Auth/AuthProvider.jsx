@@ -50,7 +50,6 @@ const AuthProvider = ({ children }) => {
         user
     }
 
-    console.log(user)
     return (
         <AuthContex.Provider value={info}>
             {children}
