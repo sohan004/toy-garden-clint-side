@@ -15,7 +15,6 @@ const Details = () => {
         category,
         ratings,
     } = useLoaderData()
-    console.log(ratings);
     return (
         <div className='container'>
             <div className="row g-4 d-flex align-items-center">
