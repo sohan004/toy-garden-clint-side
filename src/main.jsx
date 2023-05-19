@@ -11,6 +11,7 @@ import AddToy from './components/AddToy/AddToy.jsx'
 import AllToys from './components/AllToys/AllToys.jsx'
 import MyToy from './components/MyToy/MyToy.jsx'
 import ReactModal from './components/MyToy/ReactModal.jsx'
+import Details from './components/Details/Details.jsx'
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
       {
         path: '/my_toy',
         element: <MyToy></MyToy>
+      },
+      {
+        path: '/toy/:id',
+        element: <Details></Details>,
+        loader: ({ params }) => fetch(`http://localhost:5000/toy_details/${params.id}`)
       },
       {
         path: '/update/:id',

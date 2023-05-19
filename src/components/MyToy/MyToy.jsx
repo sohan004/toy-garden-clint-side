@@ -53,6 +53,7 @@ const MyToy = () => {
                         <th scope="col">Toy Name</th>
                         <th scope="col">category</th>
                         <th scope="col">Available Quantity</th>
+                        <th scope="col">Details</th>
                         <th scope="col">price</th>
                         <th scope="col">update</th>
                         <th scope="col">Delete</th>
@@ -64,6 +65,7 @@ const MyToy = () => {
                             <td>{d.toyName}</td>
                             <td>{d.category}</td>
                             <td>{d.quantity}</td>
+                            <td>{d.details.slice(0, 20)}...</td>
                             <td>{d.price}</td>
                             <td><Link to={`/update/${d._id}`}><FaEdit className='btn bg-primary fs-1 p-2 text-white rounded-circle'></FaEdit></Link></td>
                             <td><MdDelete onClick={() => delet(d._id)} className='btn bg-danger fs-1 p-2 text-white rounded-circle'></MdDelete></td>
