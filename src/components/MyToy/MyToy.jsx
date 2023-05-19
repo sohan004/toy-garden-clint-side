@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContex } from '../Auth/AuthProvider';
+import { FaEdit } from 'react-icons/fa';
+import { MdDelete } from "react-icons/md";
+import Swal from 'sweetalert2';
 
 const MyToy = () => {
     const { user } = useContext(AuthContex)
@@ -10,7 +13,36 @@ const MyToy = () => {
             .then(data => setData(data))
 
     }, [user])
-    console.log(data);
+    const delet = i => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be delete your item",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/toys/${i}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json()).then(deleData => {
+                        if (deleData.deletedCount > 0) {
+
+                            Swal.fire(
+                                'Deleted!',
+                                'Your item has been deleted',
+                                'success'
+                            )
+                            const after = data.filter(d => d._id != i)
+                            setData(after)
+                        }
+                    })
+            }
+        })
+
+    }
     return (
         <div className='container'>
             <table className="table">
@@ -31,8 +63,8 @@ const MyToy = () => {
                             <td>{d.category}</td>
                             <td>{d.quantity}</td>
                             <td>{d.price}</td>
-                            <td><button className="btn btn-primary">show details</button></td>
-                            <td><button className="btn btn-primary">show details</button></td>
+                            <td><FaEdit className='btn bg-primary fs-1 p-2 text-white rounded-circle'></FaEdit></td>
+                            <td><MdDelete onClick={() => delet(d._id)} className='btn bg-danger fs-1 p-2 text-white rounded-circle'></MdDelete></td>
                         </tr>
                     )}
                 </tbody>
