@@ -12,6 +12,7 @@ import AllToys from './components/AllToys/AllToys.jsx'
 import MyToy from './components/MyToy/MyToy.jsx'
 import ReactModal from './components/MyToy/ReactModal.jsx'
 import Details from './components/Details/Details.jsx'
+import Private from './components/Private/Private.jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/add_toy',
-        element: <AddToy></AddToy>
+        element: <Private><AddToy></AddToy></Private>
       },
       {
         path: '/all_toy',
@@ -40,16 +41,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/my_toy',
-        element: <MyToy></MyToy>
+        element: <Private><MyToy></MyToy></Private>
       },
       {
         path: '/toy/:id',
-        element: <Details></Details>,
+        element: <Private><Details></Details></Private>,
         loader: ({ params }) => fetch(`http://localhost:5000/toy_details/${params.id}`)
       },
       {
         path: '/update/:id',
-        element: <ReactModal></ReactModal>,
+        element: <Private><ReactModal></ReactModal></Private>,
         loader: ({ params }) => fetch(`http://localhost:5000/toy_details/${params.id}`)
       },
     ]

@@ -3,14 +3,20 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Nav from './components/Nav/Nav'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigation } from 'react-router-dom'
 
 function App() {
+  const navigation = useNavigation()
 
   return (
     <>
       <Nav></Nav>
-      <Outlet></Outlet>
+      {navigation.state === 'loading' ? <div style={{ marginTop: '150px' }} className="d-flex  justify-content-center">
+        <div className="spinner-border  text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div> : <Outlet></Outlet>}
+
     </>
   )
 }

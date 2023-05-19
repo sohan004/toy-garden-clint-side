@@ -3,18 +3,26 @@ import { Link } from 'react-router-dom';
 
 const AllToys = () => {
     const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         fetch('http://localhost:5000/toys')
             .then(res => res.json())
-            .then(data => setData(data))
+            .then(data => {
+                setData(data)
+                setLoading(false)
+            })
 
     }, [])
 
     const handle = e => {
+        setLoading(true)
         e.preventDefault()
         const name = e.target.name.value
         fetch(`http://localhost:5000/toys/${name}`)
-            .then(res => res.json()).then(data => setData(data))
+            .then(res => res.json()).then(data => {
+                setData(data)
+                setLoading(false)
+            })
     }
     return (
         <div className='container'>
@@ -48,6 +56,11 @@ const AllToys = () => {
                     )}
                 </tbody>
             </table>
+            {loading && <div style={{ marginTop: '150px' }} className="d-flex  justify-content-center">
+                <div className="spinner-border  text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+            </div>}
         </div>
     );
 };

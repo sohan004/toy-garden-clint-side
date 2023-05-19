@@ -9,10 +9,14 @@ import { Link } from 'react-router-dom';
 const MyToy = () => {
     const { user } = useContext(AuthContex)
     const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         fetch(`http://localhost:5000/my_toys?email=${user?.email}`)
             .then(res => res.json())
-            .then(data => setData(data))
+            .then(data => {
+                setData(data)
+                setLoading(false)
+            })
 
     }, [user])
     const delet = i => {
@@ -73,6 +77,11 @@ const MyToy = () => {
                     )}
                 </tbody>
             </table>
+            {loading && <div style={{ marginTop: '150px' }} className="d-flex  justify-content-center">
+                <div className="spinner-border  text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+            </div>}
         </div>
     );
 };
