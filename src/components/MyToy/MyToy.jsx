@@ -3,6 +3,8 @@ import { AuthContex } from '../Auth/AuthProvider';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from "react-icons/md";
 import Swal from 'sweetalert2';
+import ReactModal from './ReactModal';
+import { Link } from 'react-router-dom';
 
 const MyToy = () => {
     const { user } = useContext(AuthContex)
@@ -63,7 +65,7 @@ const MyToy = () => {
                             <td>{d.category}</td>
                             <td>{d.quantity}</td>
                             <td>{d.price}</td>
-                            <td><FaEdit className='btn bg-primary fs-1 p-2 text-white rounded-circle'></FaEdit></td>
+                            <td><Link to={`/update/${d._id}`}><FaEdit className='btn bg-primary fs-1 p-2 text-white rounded-circle'></FaEdit></Link></td>
                             <td><MdDelete onClick={() => delet(d._id)} className='btn bg-danger fs-1 p-2 text-white rounded-circle'></MdDelete></td>
                         </tr>
                     )}
