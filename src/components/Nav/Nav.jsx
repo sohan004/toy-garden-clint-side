@@ -28,12 +28,12 @@ const Nav = () => {
                             <li className="nav-item me-4">
                                 <NavLink className={({ isActive }) => `nav-link fw-bolder ${isActive ? 'text-primary' : ''}`} aria-current="page" to="/all_toy">All Toys</NavLink>
                             </li>
-                            <li className="nav-item me-4">
+                            {user && <li className="nav-item me-4">
                                 <NavLink className={({ isActive }) => `nav-link fw-bolder ${isActive ? 'text-primary' : ''}`} aria-current="page" to="/my_toy">My Toys</NavLink>
-                            </li>
-                            <li className="nav-item me-4">
+                            </li>}
+                            { user && <li className="nav-item me-4">
                                 <NavLink className={({ isActive }) => `nav-link fw-bolder ${isActive ? 'text-primary' : ''}`} aria-current="page" to="/add_toy">Add Toy</NavLink>
-                            </li>
+                            </li>}
                             <li className="nav-item me-4">
                                 <NavLink className={({ isActive }) => `nav-link fw-bolder ${isActive ? 'text-primary' : ''}`} aria-current="page" to="/blog">Blogs</NavLink>
                             </li>
