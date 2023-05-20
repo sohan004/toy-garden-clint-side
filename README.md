@@ -5,3 +5,5 @@
 * Meaningful Footer: Design a footer section that includes relevant information and links. It can include elements like contact information, social media icons, quick links to important pages, and copyright information. Ensure the footer is consistent across all pages and easily accessible.
 * Seamless Product Addition: Create a user-friendly section for adding new products. Include a form or backend system where you can easily upload product details, such as images, descriptions, prices, and specifications. Ensure the process is straightforward and allows for easy management and updates.
 
+# live link
+https://assaignment-11-99d1e.web.app/
