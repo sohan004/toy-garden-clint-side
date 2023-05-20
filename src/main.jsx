@@ -14,6 +14,7 @@ import ReactModal from './components/MyToy/ReactModal.jsx'
 import Details from './components/Details/Details.jsx'
 import Private from './components/Private/Private.jsx'
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx'
+import Blog from './components/Blog/Blog.jsx'
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: '/my_toy',
         element: <Private><MyToy></MyToy></Private>
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
       },
       {
         path: '/toy/:id',
