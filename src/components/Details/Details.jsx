@@ -1,9 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ReactStarsRating from 'react-awesome-stars-rating';
+import { useTitle } from '../useTitle/useTitle';
 
 
 const Details = () => {
+    useTitle('Toy Garden || TOY DETAILS')
     const {
         toyName,
         photo,

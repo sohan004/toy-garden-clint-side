@@ -5,20 +5,23 @@ import { MdDelete } from "react-icons/md";
 import Swal from 'sweetalert2';
 import ReactModal from './ReactModal';
 import { Link } from 'react-router-dom';
+import { useTitle } from '../useTitle/useTitle';
 
 const MyToy = () => {
+    useTitle('Toy Garden || MY TOY')
+    const [sort, setSort] = useState(0)
     const { user } = useContext(AuthContex)
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch(`http://localhost:5000/my_toys?email=${user?.email}`)
+        fetch(`http://localhost:5000/my_toys?email=${user?.email}&num=${sort}`)
             .then(res => res.json())
             .then(data => {
                 setData(data)
                 setLoading(false)
             })
 
-    }, [user])
+    }, [user, sort])
     const delet = i => {
         Swal.fire({
             title: 'Are you sure?',
@@ -51,6 +54,10 @@ const MyToy = () => {
     }
     return (
         <div className='container'>
+            <div className='my-4  '>
+                <button onClick={() => setSort(-1)} className={`btn rounded-0 border shadow p-2 ${sort === -1 && 'btn-danger'}`}>High Price</button>
+                <button onClick={() => setSort(1)} className={`btn rounded-0  border shadow p-2 ${sort === 1 && 'btn-danger'}`}>Low Price</button>
+            </div>
             <table className="table">
                 <thead>
                     <tr>

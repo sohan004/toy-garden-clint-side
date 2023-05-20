@@ -5,10 +5,11 @@ import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom'
 import gif from '../../assets/secure-login.gif'
 import { AuthContex } from '../Auth/AuthProvider';
 import Swal from 'sweetalert2';
+import { useTitle } from '../useTitle/useTitle';
 
 const SignUp = () => {
 
-    
+    useTitle('Toy Garden || REGISTER')
     
     const { signup, updt, out } = useContext(AuthContex)
     const [eror, setEror] = useState('')

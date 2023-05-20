@@ -1,8 +1,10 @@
 import React from 'react';
 import eror from '../../assets/404.gif'
 import { Link } from 'react-router-dom';
+import { useTitle } from '../useTitle/useTitle';
 
 const ErrorPage = () => {
+    useTitle('Toy Garden || ERROR PAGE')
     return (
         <div className='container'>
             <div className="row g-4 d-flex align-items-center">

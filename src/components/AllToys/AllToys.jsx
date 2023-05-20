@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTitle } from '../useTitle/useTitle';
 
 const AllToys = () => {
+    useTitle('Toy Garden || ALL TOY')
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
@@ -28,11 +30,11 @@ const AllToys = () => {
         <div className='container'>
             <div className="text-center mb-4">
                 <form onSubmit={handle} action="">
-                    <input type="text" name="name" className='rounded p-2 ' placeholder='search' />
-                    <input type="submit" value="search" className='btn btn-primary rounded-0 ' />
+                    <input type="text" name="name" className='rounded p-2 border border-primary' placeholder='search' />
+                    <input type="submit" value="search" className='btn btn-primary ms-1' />
                 </form>
             </div>
-            <table className="table">
+            {!loading && <table className="table">
                 <thead>
                     <tr>
                         <th scope="col">Seller</th>
@@ -55,7 +57,7 @@ const AllToys = () => {
                         </tr>
                     )}
                 </tbody>
-            </table>
+            </table>}
             {loading && <div style={{ marginTop: '150px' }} className="d-flex  justify-content-center">
                 <div className="spinner-border  text-primary" role="status">
                     <span className="visually-hidden">Loading...</span>

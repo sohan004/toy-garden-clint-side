@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import Select from 'react-select';
 import { AuthContex } from '../Auth/AuthProvider';
 import Swal from 'sweetalert2';
+import { useTitle } from '../useTitle/useTitle';
 
 const AddToy = () => {
+    useTitle('Toy Garden || ADD TOY')
     const [eror, setEror] = useState('')
     const { user } = useContext(AuthContex)
     const options = [

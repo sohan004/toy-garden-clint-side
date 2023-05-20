@@ -4,8 +4,10 @@ import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import gif from '../../assets/secure-login.gif'
 import { AuthContex } from '../Auth/AuthProvider';
+import { useTitle } from '../useTitle/useTitle';
 
 const SignIn = () => {
+    useTitle('Toy Garden || SIGN IN')
     const loc = useLocation()
     const navigate = useNavigate()
     const [eror, setEror] = useState('')

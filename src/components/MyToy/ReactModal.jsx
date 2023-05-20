@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useTitle } from '../useTitle/useTitle';
 
 const ReactModal = () => {
+    useTitle('Toy Garden || UPDATE TOY')
     const { toyName,
         photo,
         _id,
