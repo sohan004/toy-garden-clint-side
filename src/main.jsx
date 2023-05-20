@@ -52,12 +52,12 @@ const router = createBrowserRouter([
       {
         path: '/toy/:id',
         element: <Private><Details></Details></Private>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toy_details/${params.id}`)
+        loader: ({ params }) => fetch(`https://assaignment-11-server-gules.vercel.app/toy_details/${params.id}`)
       },
       {
         path: '/update/:id',
         element: <Private><ReactModal></ReactModal></Private>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toy_details/${params.id}`)
+        loader: ({ params }) => fetch(`https://assaignment-11-server-gules.vercel.app/toy_details/${params.id}`)
       },
     ]
   },

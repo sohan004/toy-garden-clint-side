@@ -7,7 +7,7 @@ const AllToys = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch('http://localhost:5000/toys')
+        fetch('https://assaignment-11-server-gules.vercel.app/toys')
             .then(res => res.json())
             .then(data => {
                 setData(data)
@@ -20,7 +20,7 @@ const AllToys = () => {
         setLoading(true)
         e.preventDefault()
         const name = e.target.name.value
-        fetch(`http://localhost:5000/toys/${name}`)
+        fetch(`https://assaignment-11-server-gules.vercel.app/toys/${name}`)
             .then(res => res.json()).then(data => {
                 setData(data)
                 setLoading(false)

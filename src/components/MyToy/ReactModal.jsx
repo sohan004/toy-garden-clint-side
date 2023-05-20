@@ -20,7 +20,7 @@ const ReactModal = () => {
         const quantity = e.target.quantity.value
         const details = e.target.details.value
         const info = { price, quantity, details }
-        fetch(`http://localhost:5000/toys/${_id}`, {
+        fetch(`https://assaignment-11-server-gules.vercel.app/toys/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

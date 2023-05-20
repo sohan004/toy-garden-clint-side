@@ -8,7 +8,7 @@ const Sec5 = () => {
     const [data, setData] = useState([])
     const [tf, setTf] = useState(true)
     useEffect(() => {
-        fetch(`http://localhost:5000/category/${category}`)
+        fetch(`https://assaignment-11-server-gules.vercel.app/category/${category}`)
             .then(res => res.json()).then(categoryData => setData(categoryData))
     }, [category])
     return (

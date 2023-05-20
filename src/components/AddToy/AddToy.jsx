@@ -55,7 +55,7 @@ const AddToy = () => {
             ratings: selectedOption2.value
         }
         setEror('')
-        fetch('http://localhost:5000/toys', {
+        fetch('https://assaignment-11-server-gules.vercel.app/toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
