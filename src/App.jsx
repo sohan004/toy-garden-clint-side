@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Nav from './components/Nav/Nav'
 import { Outlet, useNavigation } from 'react-router-dom'
+import Footer from './components/Footer/Footer'
 
 function App() {
   const navigation = useNavigation()
@@ -16,6 +17,7 @@ function App() {
           <span className="visually-hidden">Loading...</span>
         </div>
       </div> : <Outlet></Outlet>}
+      <Footer></Footer>
 
     </>
   )

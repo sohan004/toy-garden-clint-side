@@ -16,7 +16,7 @@ const Sec2 = () => {
         AOS.init({duration: 2000});
     }, [])
     return (
-        <div style={{marginBottom: '80px'}} className='container'>
+        <div  className='container'>
             <h1 className="text-center fw-bolder">Toy Garden Gelary</h1>
             <h5 className='text-center my-3'>Exploring the Tapestry of Time through Our Gallery</h5>
             <div className="row g-3 sc-2">

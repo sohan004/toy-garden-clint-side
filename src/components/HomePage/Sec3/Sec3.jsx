@@ -4,7 +4,7 @@ import blank from '../../../assets/blank-profile-picture-gb085c28e0_1280.png'
 
 const Sec3 = () => {
     return (
-        <div className='container'>
+        <div style={{marginBottom: '80px'}} className='container'>
             <h1 className="text-center fw-bolder">Customer Saying</h1>
             <h5 className='text-center my-3'>Customer Reviews</h5>
             <div className='d-flex flex-column flex-md-row gap-4'>

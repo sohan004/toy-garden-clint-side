@@ -3,6 +3,7 @@ import ReactStarsRating from 'react-awesome-stars-rating';
 import { AuthContex } from '../../Auth/AuthProvider';
 import { toast } from 'react-toastify';
 import { redirect, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Item = ({ d }) => {
     const { user } = useContext(AuthContex)
@@ -21,10 +22,11 @@ const Item = ({ d }) => {
     } = d
     const detail = () => {
         if (!user) {
-            toast.error('You have to log in first to view details!', {
-                position: "top-center",
-                theme: "colored",
-            });
+            Swal.fire(
+                'Not Log In',
+                'You have to log in first to view details!',
+                'error'
+            )
         }
         navigate(`/toy/${_id}`)
     }
