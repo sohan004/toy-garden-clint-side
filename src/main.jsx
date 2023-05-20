@@ -13,6 +13,7 @@ import MyToy from './components/MyToy/MyToy.jsx'
 import ReactModal from './components/MyToy/ReactModal.jsx'
 import Details from './components/Details/Details.jsx'
 import Private from './components/Private/Private.jsx'
+import ErrorPage from './components/ErrorPage/ErrorPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/toy_details/${params.id}`)
       },
     ]
+  },
+  {
+    path: '*',
+    element: <ErrorPage></ErrorPage>
   }
 ])
 

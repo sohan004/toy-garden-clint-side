@@ -4,15 +4,19 @@ import { AuthContex } from '../Auth/AuthProvider';
 import blank from '../../assets/blank-profile-picture-gb085c28e0_1280.png'
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip as ReactTooltip } from "react-tooltip";
+import logo from '../../assets/logo.png'
 
 const Nav = () => {
-    
+
     const { user, out } = useContext(AuthContex)
     return (
         <div className='bg-white position-sticky top-0 z-2'>
-            <nav className="navbar navbar-expand-lg my-3 ">
+            <nav className="navbar navbar-expand-lg  ">
                 <div className="container">
-                    <a className="navbar-brand" href="#">Navbar</a>
+                    <div className='d-flex align-items-center gap-3'>
+                        <img style={{width: '90px'}} src={logo} alt="" className="img-fluid" />
+                        <h4 className='fw-bolder'>Toy Garden</h4>
+                    </div>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

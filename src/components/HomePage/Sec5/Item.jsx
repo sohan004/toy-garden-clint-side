@@ -35,8 +35,8 @@ const Item = ({ d }) => {
                 <div className="p-4 position-sticky top-100">
                     <h5 className="card-title">{toyName}</h5>
                     <p className="card-text">Price: ${price}</p>
-                    <ReactStarsRating isEdit={false} value={ratings} />
-                    <button onClick={detail} className="ms-3 btn btn-primary">view Details</button>
+                    <h4><ReactStarsRating isEdit={false} value={ratings} /> {ratings}</h4>
+                    <button onClick={detail} className="mt-3 btn btn-primary">view Details</button>
                 </div>
             </div>
         </div>

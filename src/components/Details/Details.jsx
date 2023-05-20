@@ -31,7 +31,7 @@ const Details = () => {
                     <h6 className="text-secondary">category: {category}</h6>
                     <h6 className="text-secondary">Available Quantity: {quantity}</h6>
                     <p className='my-4'><span className='fw-bolder'>Description</span>: {details}</p>
-                    <ReactStarsRating isEdit={false} value={ratings} />
+                    <h4><ReactStarsRating isEdit={false} value={ratings} /> {ratings}</h4>
                 </div>
             </div>
         </div>
