@@ -55,8 +55,8 @@ const MyToy = () => {
     return (
         <div className='container'>
             <div className='my-4  '>
-                <button onClick={() => setSort(-1)} className={`btn rounded-0 border shadow p-2 ${sort === -1 && 'btn-danger'}`}>High Price</button>
-                <button onClick={() => setSort(1)} className={`btn rounded-0  border shadow p-2 ${sort === 1 && 'btn-danger'}`}>Low Price</button>
+                <button onClick={() => setSort(1)} className={`btn rounded-0 border shadow p-2 ${sort === 1 && 'btn-danger'}`}>High Price</button>
+                <button onClick={() => setSort(-1)} className={`btn rounded-0  border shadow p-2 ${sort === -1 && 'btn-danger'}`}>Low Price</button>
             </div>
             <table className="table">
                 <thead>
