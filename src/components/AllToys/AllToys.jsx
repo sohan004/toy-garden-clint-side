@@ -34,30 +34,32 @@ const AllToys = () => {
                     <input type="submit" value="search" className='btn btn-primary ms-1' />
                 </form>
             </div>
-            {!loading && <table className="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Seller</th>
-                        <th scope="col">Toy Name</th>
-                        <th scope="col">category</th>
-                        <th scope="col">Available Quantity</th>
-                        <th scope="col">price</th>
-                        <th scope="col">Details</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map(d =>
-                        <tr key={d._id}>
-                            <th scope="row">{d.name}</th>
-                            <td>{d.toyName}</td>
-                            <td>{d.category}</td>
-                            <td>{d.quantity}</td>
-                            <td>{d.price}</td>
-                            <td><Link to={`/toy/${d._id}`}><button className="btn btn-primary">show details</button></Link></td>
+            <div className='overflow-x-scroll'>
+                {!loading && <table className="table ">
+                    <thead>
+                        <tr>
+                            <th scope="col">Seller</th>
+                            <th scope="col">Toy Name</th>
+                            <th scope="col">category</th>
+                            <th scope="col">Available Quantity</th>
+                            <th scope="col">price</th>
+                            <th scope="col">Details</th>
                         </tr>
-                    )}
-                </tbody>
-            </table>}
+                    </thead>
+                    <tbody>
+                        {data.map(d =>
+                            <tr key={d._id}>
+                                <th scope="row">{d.name}</th>
+                                <td>{d.toyName}</td>
+                                <td>{d.category}</td>
+                                <td>{d.quantity}</td>
+                                <td>{d.price}</td>
+                                <td><Link to={`/toy/${d._id}`}><button className="btn btn-primary">show details</button></Link></td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>}
+            </div>
             {loading && <div style={{ marginTop: '150px' }} className="d-flex  justify-content-center">
                 <div className="spinner-border  text-primary" role="status">
                     <span className="visually-hidden">Loading...</span>

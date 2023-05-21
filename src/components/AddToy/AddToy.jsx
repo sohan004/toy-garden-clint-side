@@ -9,7 +9,7 @@ const AddToy = () => {
     const [eror, setEror] = useState('')
     const { user } = useContext(AuthContex)
     const options = [
-        { value: 'sprots car', label: 'sprots car' },
+        { value: 'sports car', label: 'sports car' },
         { value: 'police car', label: 'police car' },
         { value: 'truck car', label: 'truck car' },
     ];
